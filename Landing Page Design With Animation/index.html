@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .body {
+        color: #333333;
+        overflow: hidden;
+        font-family: 'Roboto', sans-serif;
+        letter-spacing: 1px;
+        font-size: 16px;
+    }
+    
+    li {
+        list-style: none;
+    }
+    
+    a {
+        color: #333;
+        text-decoration: none;
+    }
+    
+    header {
+        padding: 20px 100px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    header ul li {
+        display: inline-block;
+    }
+    
+    header ul li a {
+        text-transform: uppercase;
+        position: relative;
+        padding: 20px 25px;
+    }
+    
+    header ul li a:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background-color: #ececec;
+        z-index: -1;
+        transition: all ease 0.5s;
+    }
+    
+    header ul li a:hover:before {
+        height: 100%;
+    }
+    
+    .content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .content .product-image {
+        position: relative;
+        overflow: hidden;
+        display: none;
+    }
+    
+    .content .product-image.active {
+        display: block;
+    }
+    
+    .content .products {
+        width: 37%;
+    }
+    
+    .content .products img {
+        width: 100%;
+        opacity: 0;
+        transform: scale(1.0);
+    }
+    
+    .content .product-image img {
+        opacity: 1;
+        animation: productImg 2s ease 0s;
+    }
+    
+    @keyframes productImg {
+        from {
+            transform: scale(1.2);
+            opacity: 0;
+        }
+    }
+    
+    .content .product-image .overlay {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #ececec;
+        z-index: 9;
+    }
+    
+    .content .product-image.active .overlay {
+        left: -100%;
+        animation: overlay 2s ease 0s;
+    }
+    
+    @keyframes overlay {
+        from {
+            left: 0%;
+        }
+    }
+    
+    .content .category {
+        width: 26%;
+    }
+    
+    .content .category ul li {
+        text-align: center;
+        display: block;
+        margin: 15px 0;
+    }
+    
+    .content .category ul li a {
+        position: relative;
+        font-family: Butler;
+        font-size: 36px;
+        text-transform: uppercase;
+        padding: 28px 0;
+        display: block;
+        width: 100%;
+        transition: all ease 0.5s;
+    }
+    
+    .content .category ul li a:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 0;
+        background-color: #ececec;
+        z-index: -1;
+        transition: all ease 0.5s;
+    }
+    
+    .content .category ul li a:hover,
+    .content .category ul li a.active {
+        color: #818181;
+    }
+    
+    .content .category ul li a:hover:before,
+    .content .category ul li a.active:before {
+        height: 100%;
+    }
+</style>
+
+<body>
+
+    <div class="body">
+        <main>
+            <header>
+                <div class="logo">
+                    <a href="#">Logo</a>
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="#">Designers</a></li>
+                        <li><a href="#">Clothing</a></li>
+                        <li><a href="#">Intimates</a></li>
+                        <li><a href="#">Brands</a></li>
+                    </ul>
+                </div>
+                <div class="wishlist">
+                    <ul>
+                        <li><a href="#">❤</a></li>
+                    </ul>
+                </div>
+            </header>
+            <!-- end to header -->
+            <!-- left side product image -->
+            <div class="content">
+                <div class="products">
+                    <div class="product-image active" id="blazers">
+                        <div class="overlay"></div>
+                        <img src="http://www.misimagenesde.com/wp-content/uploads/2014/12/imagenes-de-modelos.jpg" alt="">
+                    </div>
+                    <div class="product-image" id="jackets">
+                        <div class="overlay"></div>
+                        <img src="http://www.misimagenesde.com/wp-content/uploads/2014/12/imagenes-de-modelos.jpg" alt="">
+                    </div>
+                    <div class="product-image" id="jeans">
+                        <div class="overlay"></div>
+                        <img src="http://www.misimagenesde.com/wp-content/uploads/2014/12/imagenes-de-modelos.jpg" alt="">
+                    </div>
+                    <div class="product-image" id="suits">
+                        <div class="overlay"></div>
+                        <img src="http://www.misimagenesde.com/wp-content/uploads/2014/12/imagenes-de-modelos.jpg" alt="">
+                    </div>
+                    <div class="product-image" id="shorts">
+                        <div class="overlay"></div>
+                        <img src="http://www.misimagenesde.com/wp-content/uploads/2014/12/imagenes-de-modelos.jpg" alt="">
+                    </div>
+                </div>
+                <!-- categories -->
+                <div class="category">
+                    <ul>
+                        <li><a href="#blazers">blazers</a></li>
+                        <li><a href="#jackets">jackets</a></li>
+                        <li><a href="#jeans">jeans</a></li>
+                        <li><a href="#suits">suits</a></li>
+                        <li><a href="#shorts">shorts</a></li>
+                    </ul>
+                </div>
+                <!-- right side product image -->
+                <div class="products">
+                    <div class="product-image active" id="blazers">
+                        <div class="overlay"></div>
+                        <img src="http://www.misimagenesde.com/wp-content/uploads/2014/12/imagenes-de-modelos.jpg" alt="">
+                    </div>
+                    <div class="product-image" id="jackets">
+                        <div class="overlay"></div>
+                        <img src="http://www.misimagenesde.com/wp-content/uploads/2014/12/imagenes-de-modelos.jpg" alt="">
+                    </div>
+                    <div class="product-image" id="jeans">
+                        <div class="overlay"></div>
+                        <img src="http://www.misimagenesde.com/wp-content/uploads/2014/12/imagenes-de-modelos.jpg" alt="">
+                    </div>
+                    <div class="product-image" id="suits">
+                        <div class="overlay"></div>
+                        <img src="http://www.misimagenesde.com/wp-content/uploads/2014/12/imagenes-de-modelos.jpg" alt="">
+                    </div>
+                    <div class="product-image" id="shorts">
+                        <div class="overlay"></div>
+                        <img src="http://www.misimagenesde.com/wp-content/uploads/2014/12/imagenes-de-modelos.jpg" alt="">
+                    </div>
+
+                </div>
+        </main>
+        </div>
+
+        <!-- JQUERY -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <!-- AnimeJs -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha512-z4OUqw38qNLpn1libAN9BsoDx6nbNFio5lA6CuTp9NlK83b89hgyCVq+N5FdBJptINztxn1Z3SaKSKUS5UP60Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script>
+            $(function() {
+                $(".category li a").mouseover(function() {
+                        $(this).addClass("active");
+                        $(".category li a").not(this).removeClass("active");
+
+                        var catname = $(this).attr("href");
+
+                        $(".products .product-image").removeClass("active");
+                        $(".products .product-image" + catname).addClass("active");
+                    })
+                    //anime.js
+                var tl = anime.timeline({
+                    easing: 'easeInOutQuart',
+                });
+                tl
+                    .add({
+                        targets: '.logo',
+                        opacity: [0, 1],
+                        translateX: [-100, 0],
+                        duration: 1500,
+                    })
+                    .add({
+                        targets: '.menu li',
+                        opacity: [0, 1],
+                        translateY: [-100, 0],
+                        duration: 2000,
+                        delay: anime.stagger(150)
+                    }, '-=1000')
+                    .add({
+                        targets: '.wishlist li',
+                        opacity: [0, 1],
+                        translateY: [-100, 0],
+                        duration: 3000,
+                    }, '-=2000')
+                    .add({
+                        targets: '.category li',
+                        opacity: [0, 1],
+                        translateX: [-100, 0],
+                        duration: 1500,
+                        delay: anime.stagger(200, {
+                            start: 2000
+                        })
+                    }, '-=3000')
+                    .add({
+                        targets: '.products',
+                        opacity: [0, 1],
+                        scaleY: [1.1, 1],
+                        scaleX: [1.1, 1],
+                        duration: 1500,
+                        delay: anime.stagger(200, {
+                            start: 3500
+                        })
+                    }, '-=4000')
+            })
+        </script>
+
+</body>
+
+</html>
